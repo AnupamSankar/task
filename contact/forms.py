@@ -21,7 +21,7 @@ class ContactForm(forms.Form):
     Desc = forms.CharField(label='Description',
                            max_length=100,
                            min_length=20,
-                           widget=forms.TextInput(attrs={'class':"input"})
+                           widget=forms.TextInput(attrs={'class':"input",'placeholder':"Description"})
                           )
     
 
