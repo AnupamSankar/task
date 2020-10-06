@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ContactForm
 from .models import Contact
@@ -13,7 +13,7 @@ def index(request):
     if form.is_valid():
         new_contact = Contact(name=request.POST['name'], email=request.POST['email'], phone=request.POST['phone'], Desc=request.POST['Desc'])
         new_contact.save()
-    return render(request, 'contact/index.html',context)
+    return redirect('contact/index.html')
 
 
 
