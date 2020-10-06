@@ -7,7 +7,13 @@ from django.core.exceptions import ValidationError
 def lencheck(x):
     return len(x)==10 
 
+
+
 class ContactForm(forms.Form):
+    
+    
+    
+    
     name = forms.CharField(label='Your Name',
                            max_length=100,
                            min_length=3,
@@ -19,6 +25,7 @@ class ContactForm(forms.Form):
                            widget=forms.TextInput(attrs={'class':"input",'placeholder':"email"})
                           )
     phone = forms.CharField(label='Phone',
+                        
                            max_length=10,
                             min_length = 10,
                             required = False,
@@ -30,11 +37,8 @@ class ContactForm(forms.Form):
                            widget=forms.TextInput(attrs={'class':"input",'placeholder':"Description"})
                           )
     
-    def clean_phone_value(self):
-        data = self.cleaned_data.get('phone')
-        if not lencheck(data):
-            raise forms.ValidationError('10 alla')
-        return data
+    
+    
     
     #def validateEmail(email):
     #try:
