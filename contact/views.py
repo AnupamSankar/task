@@ -15,8 +15,9 @@ from rest_framework.decorators import api_view
 # Create your views here.
 
 def index(request):
+    items = Contact.objects.order_by('id')
     form = ContactForm(request.POST)
-    context = {'form': form}
+    context = {'items':items,'form': form}
     if form.is_valid():
         new_contact = Contact(name=request.POST['name'], email=request.POST['email'], phone=request.POST['phone'], Desc=request.POST['Desc'])
         new_contact.save()

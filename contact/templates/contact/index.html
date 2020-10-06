@@ -47,6 +47,21 @@
             </div>
         <div id="msg"></div>
         </div>
+        <ul style="list-style-type: none">
+            
+            {% for item in items %}
+            <div style="text-align: center" class="c"><li>{{item.id}}</li>
+                <li>{{item.name}}</li>
+                <li>{{item.email}}</li>
+                <li>{{item.phone}}</li>
+                <li>{{item.Desc}}</li>
+                <br><br></div>
+
+            {% endfor %}
+                
+            
+        </ul>
+        
         <!--<script src="static/Scripts/main.js"></script>-->
     
     </body>
