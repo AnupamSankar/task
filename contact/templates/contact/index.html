@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,9 +7,11 @@
     
     <body>
         <h1>Contact Us</h1>
-        <form action="{% url 'add' %}" method="POST" role="form">
+        <form action="" method="post">
         {% csrf_token %}
-        <div>{{form.name}}</div>
+        {{form}}
+            <br>
+        
             <button type="submit" class="btn btn-success" id="add-btn" >Add</button>
             
         

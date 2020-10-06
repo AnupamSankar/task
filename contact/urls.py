@@ -3,5 +3,5 @@ from .import views
 
 urlpatterns = [
     path('',views.index,name='index'),
-    path('add', views.addContact, name='add'),
+    #path('add', views.addContact, name='add'),
 ]
