@@ -37,6 +37,10 @@ class ContactForm(forms.Form):
                            widget=forms.TextInput(attrs={'class':"input",'placeholder':"Description"})
                           )
     
+    #here
+    class Meta:
+        model = Contact
+        fields = ("__all__")
     
     
     
@@ -49,7 +53,3 @@ class ContactForm(forms.Form):
         
     
 
-#class ContactForm(ModelForm):
-    #class Meta:
-        #model = Contact
-        #fields = '__all__'
