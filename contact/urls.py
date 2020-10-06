@@ -4,6 +4,7 @@ from django.conf.urls import url
 
 
 urlpatterns = [
+    #path('add',views.addContact,name='add'),
     path('',views.index,name='index'),
     url(r'^list$', views.contactlist)
     
