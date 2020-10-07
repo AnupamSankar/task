@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Contact Us</h1>
+
+<div class="container-fluid">
+    <form id="add-contact">
+        <div class="row">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group col-4">
+                <label class="col-12">{{ field.label }}{{ field }}</label>
+                
+                
+            </div>
+            {% endfor %}
+            <input type="submit" class="btn btn-primary" value="Add Contact" />
+        </div>
+    <form>
+</div>
+<hr />
+        <a style="text-align: center" href="{% url 'details' %}" >View Available Contacts</a>
+        
+
+{% block javascript %}
+<script>
+    $("#add-contact").submit(function (e) {
+        e.preventDefault();
+        var serializedData = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url : "{% url 'add' %}",
+            data: serializedData,
+            success: function(response) {
+                 $("#add-contact").trigger('reset');
+                 alert("Successfully added new contact!");
+            },
+            error: function(response) {
+                alert("Data entered is not valid!");
+            }
+        })
+    })
+    </script>
+{% endblock javascript %}
+    
+    
+{% endblock content %}
+        
+        
