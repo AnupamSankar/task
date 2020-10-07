@@ -63,3 +63,9 @@ def contactlist(request):
             return JsonResponse(contact_serializer.data,status=status.HTTP_201_CREATED)
         return JsonResponse(contact_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+def details(request):
+    items = Contact.objects.order_by('id')
+    form = ContactForm()
+    context = {'items':items,'form': form}
+    return render(request, 'contact/details.html',context)
+    
